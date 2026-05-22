@@ -68,7 +68,7 @@ footer p{font-size:0.75rem;letter-spacing:3px;color:#444;text-transform:uppercas
 </head>
 <body>
 <div class="loader" id="loader"><h1>MUSA HAITEM</h1><p>Art Exhibition</p></div>
-<<canvas id="particles"></canvas>
+<canvas id="particles"></canvas>
 <section class="hero">
 <div class="hero-content">
 <p class="hero-label">A Special Exhibition For</p>
@@ -128,7 +128,7 @@ footer p{font-size:0.75rem;letter-spacing:3px;color:#444;text-transform:uppercas
 <p class="signature">Montader Walhan</p>
 </div>
 </section>
-<<footer><p>Musa Haithem Art Exhibition — May 2026</p></footer>
+<footer><p>Musa Haithem Art Exhibition — May 2026</p></footer>
 <script>
 window.addEventListener('load',function(){setTimeout(function(){document.getElementById('loader').classList.add('hidden')},2000)});
 var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:0.15,rootMargin:'0px 0px -50px 0px'});
@@ -138,8 +138,8 @@ var ctx=canvas.getContext('2d');
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 var particles=[];
-for(var i=0;i<<60;i++){particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,size:Math.random()*2+0.5,speedX:(Math.random()-0.5)*0.3,speedY:(Math.random()-0.5)*0.3,opacity:Math.random()*0.5+0.1})}
-function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(function(p){p.x+=p.speedX;p.y+=p.speedY;if(p.x<<0||p.x>canvas.width)p.speedX*=-1;if(p.y<<0||p.y>canvas.height)p.speedY*=-1;ctx.fillStyle='rgba(201,162,39,'+p.opacity+')';ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill()});requestAnimationFrame(animate)}
+for(var i=0;i<60;i++){particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,size:Math.random()*2+0.5,speedX:(Math.random()-0.5)*0.3,speedY:(Math.random()-0.5)*0.3,opacity:Math.random()*0.5+0.1})}
+function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(function(p){p.x+=p.speedX;p.y+=p.speedY;if(p.x<0||p.x>canvas.width)p.speedX*=-1;if(p.y<0||p.y>canvas.height)p.speedY*=-1;ctx.fillStyle='rgba(201,162,39,'+p.opacity+')';ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill()});requestAnimationFrame(animate)}
 animate();
 window.addEventListener('resize',function(){canvas.width=window.innerWidth;canvas.height=window.innerHeight});
 </script>
